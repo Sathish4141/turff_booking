@@ -1,0 +1,33 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+
+{% block main %}
+<main>
+        
+    <div class="col-4 offset-4">
+        <br>
+        <h2 class="text-center text-danger" >Sign-in</h2>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="uname" class="text-danger" >Username</label>
+            <input type="text" name="uname" id="uname" class="form-control">
+            <br>
+            <label for="password" class="text-danger">Password</label>
+            <input type="password" name="password" id="password" class="form-control">
+            <br>
+            <div class="text-center"><button class="btn btn-primary ">Login</button></div>
+            <!-- <li><a href=" {% url 'signup' %}"class="text-center btn btn-secondary">Signup</a></li> -->
+            
+
+        </form>
+        
+        <li><a href=" {% url 'signup' %}"class="text-center btn btn-secondary">Signup</a></li><br>
+        <li><a href=" {% url 'owner_signup' %}"class="text-center btn btn-success">Owner_Signup</a></li>
+
+        
+
+    </div>
+</main>
+{% endblock main %}

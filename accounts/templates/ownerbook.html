@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block main %}
+<div class="container">
+    <br>
+
+<h2 class="text-center text-success">BOOKING LIST</h2>
+
+<table class="table table-white text-white table-bordered">
+    <tr>
+
+        <th>SL.NO.</th>
+        <th>Turff Name</th>
+        <th> Name </th>
+        <th>Contact No</th>
+        <th>Booking Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Court Fee p/h</th>
+        <th>Total Time</th>
+        <th>Total Amount</th>
+        
+
+    </tr>
+    
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ booking.detail.turff_name  }}</td>
+        <td>{{ booking.c_name.first_name }} {{ booking.c_name.last_name }}</td>
+        <td>{{ booking.c_name.phone  }}</td>
+        <td>{{ booking.date }}</td>
+        <td>{{ booking.s_time }}</td>
+        <td>{{ booking.e_time }}</td>
+        <td>{{ booking.duration }}</td>
+        <td>{{ booking.detail.court_fee }}</td>
+        <td>{{ booking.amount }}</td>
+
+
+
+        
+        
+
+        
+    </tr>
+    {% endfor %}
+        
+</table>
+</div>
+{% endblock main %}

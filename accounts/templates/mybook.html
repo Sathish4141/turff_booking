@@ -1,0 +1,46 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block main %}
+<div class="container">
+    <br>
+
+<h2 class="text-center text-success">MY BOOKINGS</h2>
+
+<table class="table table-white text-white table-bordered">
+    <tr>
+
+        <th>SL.NO.</th>
+        <th>Turff Name</th>
+        <th>Turff owner Name</th>
+        <th>Contact No</th>
+        <th>Booking Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Total Time</th>
+        <th>Court Fee p/h</th>
+        <th>Total Amount</th>
+        <th>Action</th>
+
+    </tr>
+    
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ booking.detail.turff_name }}</td>
+        <td>{{  booking.detail.turff_owner.first_name }} {{  booking.detail.turff_owner.last_name }}</td>
+        <td>{{ booking.detail.contact }}</td>
+        <td>{{ booking.date }}</td>
+        <td>{{ booking.s_time }}</td>
+        <td>{{ booking.e_time }}</td>
+        <td>{{ booking.duration }}</td>
+        <td>{{ booking.detail.court_fee }}</td>
+        <td>{{ booking.amount }}</td>
+        <td>
+            <a href="{% url 'tdelete' id=booking.id %}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+        
+</table>
+</div>
+{% endblock main %}

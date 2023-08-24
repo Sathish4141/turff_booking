@@ -1,0 +1,72 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block main %}
+
+<div class="row mt-5 text-danger">
+    <div class="col-2 offset-3">
+        <h5 class="text-center text-success">Confirm Booking</h5>
+        <table>
+            <form action="" method="post">
+                {% csrf_token %}
+            <tr>
+                <th>User Name</th>
+                <td>:</td>
+                <td name="c_name" >{{ booking.c_name.first_name  }}</td>
+            </tr>
+            <tr> 
+                <th>Turff Name</th>
+                <td>:</td>
+                <td name="turff_name" >{{ booking.detail.turff_name }}</td>
+            </tr>
+
+            <tr>
+                <th>Start Time</th>
+                <td>:</td>
+                <td name="s_time">{{ booking.s_time }}</td>
+            </tr>
+
+            <tr>
+                <th>End Time</th>
+                <td>:</td>
+                <td name="e_time">{{ booking.e_time }}</td>
+            </tr>
+
+            <tr>
+                <th>Total Time</th>
+                <td>:</td>
+                <td name="t_time">{{ booking.duration }} h</td>
+            </tr>
+
+
+            <tr>
+                <th>Amount</th>
+                <td>:</td>
+                <td name="amont">{{ booking.amount }}</td>
+            </tr>
+            </tr>
+        </table>
+
+       
+        <button  class="btn btn-center btn-success" type="submit">Confirm</button>
+       
+        </div>
+    
+        </form>
+    
+    
+
+
+
+    </div>
+</div>
+            
+
+
+
+
+
+
+
+
+
+{% endblock main %}

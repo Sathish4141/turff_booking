@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Cyborg - Awesome HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-cyborg-gaming.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 579 Cyborg Gaming
+
+https://templatemo.com/tm-579-cyborg-gaming
+
+-->
+<style>
+  .item{height: 90%;width: 90%;}
+  h3{
+  color: #ec6090;
+
+  }
+</style>
+  </head>
+
+<body>
+
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+               {% include 'nav.html' %}
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+
+  <div class="row p-5 ">
+    {% block main %}
+    
+    {% endblock main %}
+  </div>
+    
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved. 
+          
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'js/isotope.min.js' %}"></script>
+  <script src="{% static 'js/owl-carousel.js' %}"></script>
+  <script src="{% static 'js/tabs.js' %}"></script>
+  <script src="{% static 'js/popup.js' %}"></script>
+  <!-- <script src="{% static 'js/custom.js' %}"></script> -->
+
+  <script>
+    $(function(){
+      $("#e_time").change(function(){
+        var result = find_time_diff($("#s_time").val(), $("#e_time").val());
+        var total = parseInt($("#fee").text()) * result
+        $("#duration").val(result);
+        $("#amount").val(total);
+        $("#amnt").text(total);
+      })
+    })
+
+    function find_time_diff(start_time, end_time){
+      var diff =  Math.abs(new Date("1970-1-1 "+end_time) - new Date("1970-1-1 "+start_time));
+      var seconds = Math.floor(diff/1000); //ignore any left over units smaller than a second
+      var minutes = Math.floor(seconds/60); 
+      seconds = seconds % 60;
+      var hours = Math.floor(minutes/60);
+      minutes = minutes % 60;
+      // console.log();
+      return parseFloat(`${hours}.${minutes}`)
+    }
+  </script>
+  </body>
+
+</html>

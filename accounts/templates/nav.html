@@ -1,0 +1,41 @@
+{% load static %}
+<nav class="main-nav navbar-collapse">
+    <!-- ***** Logo Start ***** -->
+    <a href="index.html" class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="">
+    </a>
+    <!-- ***** Logo End ***** -->
+  
+    <!-- ***** Menu Start ***** -->
+    <ul class="nav">
+        <li><a href="{% url 'run' %}" class="active">Home</a></li>
+       
+
+        {% if user.is_staff %}
+        <li><a href="{% url 'owner_turff_list' %}" >Turff</a></li>
+        <li><a href="{% url 'turffdetails' %}">+TURFF</a></li>
+        <li><a href="{% url 'ownerbook' %}">Owner Bookings</a></li>
+
+        
+        {% else %}
+        <li><a href="{% url 'turff_list' %}" >Turff</a></li>
+        <li><a href="{% url 'mybook' %}">My Bookings</a></li>
+            
+        {% endif %}
+            
+        <!-- <li><a href=" {% url 'signup' %}">Signup</a></li> -->
+        <li><a href="{% url 'about' %}">About</a></li>
+        {% if user.is_authenticated %}
+        <li><a href=" {% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href=" {% url 'login' %}">Login</a></li>
+
+        {% endif %}
+          
+        <!-- <li><a href="profile.html">Profile <img src="{% static 'images/profile-header.jpg' %}" alt=""></a></li> -->
+    </ul>   
+    <a class='menu-trigger'>
+        <span>Menu</span>
+    </a>
+    <!-- ***** Menu End ***** -->
+</nav>

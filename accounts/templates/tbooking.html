@@ -1,0 +1,69 @@
+{% extends 'basic.html' %}
+{% load static %}
+<!-- {% load crispy_forms_tags %} -->
+
+{% block main %}
+    <div class="row mt-5 text-danger">
+        <div class="col-2 offset-3">
+            <h5 class="text-center text-success">Booking Details</h5>
+            <table>
+                <form action="" method="post">
+                    {% csrf_token %}
+                <tr>
+                    <th>User Name</th>
+                    <td>:</td>
+                    <td name="c_name" >{{ user.first_name }}</td>
+                </tr>
+                <tr> 
+                    <th>Turff Name</th>
+                    <td>:</td>
+                    <td name="turff_name" >{{ turff.turff_name }}</td>
+                </tr>
+                <tr>
+                    <th>Court Fee p/h</th>
+                    <td>:</td>
+                    <td><span id="fee">{{ turff.court_fee }}</span></td>
+                </tr>
+                <tr>
+                    <th><label for="date">Date</label></th>
+                    <td>:</td>
+                    <td><input type="date" name="date" id="date" ></td>
+                </tr>
+                <tr>
+                    <th><label for="s_time">Start Time</label></th>
+                    <td>:</td>
+                    <td><input type="time" name="s_time" id="s_time"></td>
+
+                </tr>
+                <tr>
+                    <th><label for="e_time">End Time</label></th>
+                    <td>:</td>
+                    <td><input type="time" name="e_time" id="e_time"></td>
+
+                </tr>
+                <tr>
+                    <th><label for="t_time">Amount</label></th>
+                    <td>:</td>
+                    <td>
+                        <span id="amnt"></span>
+                        <input type="hidden" name="duration" id="duration">
+                        <input type="hidden" name="amount" id="amount">
+                    </td>
+
+                </tr>
+                </table>
+                <!-- {{ form | crispy }} -->
+                   
+                <button  class="btn btn-center btn-primary" type="submit">Confirm</button>
+                </form>
+                
+                
+            
+           
+            
+        </div>
+    </div>
+
+
+
+{% endblock main %}

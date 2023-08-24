@@ -1,0 +1,37 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+
+
+{% block main %}
+<div class="most-popular" >
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em>Most Popular</em> Right Now</h4>
+        </div>
+        <div class="row">
+          
+          {% for d in data %}
+          <div class="col-lg-3 col-sm-6">
+            <div class="item"><a href="{% url 'turff_in_detail' id=d.id %}">
+              <img src="/media/{{ d.turff_img }}" width="80%" height="150px" alt="{{ d.turff_img }}">
+          </a>
+                
+              <h4>{{ d.turff_name }}<br><span>{{ d.court_size }}</span></h4>
+              <ul>
+                <li><i class="fa-solid fa-indian-rupee-sign"></i>{{ d.court_fee }}</li>
+                <a href="{% url 'turffdelete' id=d.id %}" class="btn btn-danger">Remove Turff</a>
+                
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+            
+         
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock main %}
+    

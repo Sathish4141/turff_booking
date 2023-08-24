@@ -1,0 +1,63 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block main %}
+<div class="row ml-5 mt-5 text-center">
+    
+    <div class="col-2 offset-3 ml-6 text-danger">
+        
+        <table>
+            <tr>
+               <h3><em>{{ turff.turff_name }}</em></h3>
+                
+            </tr>
+            <tr>
+                
+                <td colspan="3"><img src="/media/{{ turff.turff_img }}" width="100%" height="200px" alt="{{ turff.turff_img }}"></td>
+            </tr>
+           
+            <tr>
+                <th>Address</th>
+                <td>:</td>
+                <td>{{ turff.turff_address }}</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>:</td>
+                <td>{{ turff.contact }}</td>
+            </tr>
+            <tr>
+                <th>Court Size</th>
+                <td>:</td>
+                <td>{{ turff.court_size }}</td>
+            </tr>
+            <tr>
+                <th>Court Fee</th>
+                <td>:</td>
+                <td>{{ turff.court_fee }}</td>
+            </tr>
+            <tr>
+                <th>Email ID</th>
+                <td>:</td>
+                <td>{{ turff.t_email }}</td>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <td>:</td>
+                <td>{{ turff.turff_owner.first_name }} {{ turff.turff_owner.last_name }}</td>
+            </tr>
+            
+        </table>
+        <br>
+        {% if not user.is_staff %}
+        
+        
+        <button class="btn btn-center btn-primary"><a href="{% url 'booking' id=turff.id %}">Book Now</a></button>
+        {% endif %}
+            
+        
+    </div>
+    
+</div>
+{% endblock main %}
+    
